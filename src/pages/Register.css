@@ -1,0 +1,281 @@
+
+/* Fondo general */
+.contenido-principal {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animación del fondo */
+.contenido-principal::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 70% 50%,
+    rgba(255, 255, 255, 0.12) 0%,
+    transparent 50%
+  );
+  animation: floatBackgroundRegister 15s ease-in-out infinite;
+}
+
+@keyframes floatBackgroundRegister {
+  0%, 100% {
+    transform: translate(10%, -10%) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-10%, 10%) rotate(180deg);
+  }
+}
+
+/* Título */
+.text-center {
+  color: var(--colorBlanco);
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Formulario tipo card */
+.formulario {
+  background: var(--colorBlanco);
+  border-radius: 30px;
+  padding: 3rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  animation: slideUpRegister 0.8s ease-out;
+}
+
+@keyframes slideUpRegister {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fieldset */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+/* Campos */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.campo label {
+  font-weight: 600;
+  color: var(--colorNegro);
+  font-size: 1.05rem;
+}
+
+.campo input {
+  padding: 1rem 1.2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  outline: none;
+  background: #f8f9fa;
+}
+
+.campo input:focus {
+  border-color: var(--colorPrimario);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+  background: white;
+}
+
+.campo input:hover {
+  border-color: #b0b0b0;
+}
+
+/* Errores */
+.errors {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.7rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  border-left: 4px solid #dc3545;
+  animation: shakeRegister 0.5s ease;
+}
+
+@keyframes shakeRegister {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-8px);
+  }
+
+  75% {
+    transform: translateX(8px);
+  }
+}
+
+/* Botón */
+.btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--colorBoton), #4f46e5);
+  color: var(--colorBlanco);
+  padding: 1.1rem;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.45);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.25);
+}
+
+/* Enlace */
+.enlace {
+  margin-top: 2rem;
+  color: var(--colorBlanco);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.enlace:hover {
+  text-decoration: underline;
+  transform: translateY(-2px);
+}
+
+/* Responsive tablet */
+@media (max-width: 768px) {
+  .contenido-principal {
+    padding: 1.5rem;
+  }
+
+  .formulario {
+    padding: 2.5rem 2rem;
+    max-width: 480px;
+    border-radius: 25px;
+  }
+
+  .text-center {
+    font-size: 2.5rem;
+  }
+
+  .campo input {
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Responsive celular */
+@media (max-width: 480px) {
+  .contenido-principal {
+    padding: 1rem;
+  }
+
+  .formulario {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .text-center {
+    font-size: 2.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  legend {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .campo label {
+    font-size: 0.95rem;
+  }
+
+  .campo input {
+    padding: 0.8rem 0.9rem;
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+
+  .btn {
+    padding: 0.9rem;
+    font-size: 1rem;
+    border-radius: 14px;
+  }
+
+  .enlace {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+}
+
+/* Celulares muy pequeños */
+@media (max-width: 360px) {
+  .formulario {
+    padding: 1.5rem 1.2rem;
+    border-radius: 16px;
+  }
+
+  .text-center {
+    font-size: 1.8rem;
+  }
+
+  .campo input {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
